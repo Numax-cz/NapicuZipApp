@@ -40,8 +40,10 @@ public class Main {
     private void FileList(File dir) throws IOException {
         File[] files = dir.listFiles();
         for(File file : files){
-            if(file.isFile()) FileListDir.add(file.getAbsolutePath());
-            else FileList(file);
+            if(!file.getName().equals("node_modules")){
+                if(file.isFile()) FileListDir.add(file.getAbsolutePath());
+                else FileList(file);
+            }
         }
     }
 
